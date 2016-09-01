@@ -15,6 +15,7 @@ class KeyboardControllerGUI(QDialog):
         self.is_connected = False
         self.ui.connectButton.setEnabled(True)
         self.ui.disconnectButton.setEnabled(False)
+        self.autoExec = False
 
         # Variables
         self.baud = 9600
@@ -22,6 +23,7 @@ class KeyboardControllerGUI(QDialog):
         self.arduino_board_details = ''
         # Baudrates
         self.baud_rates = ['4800', '9600', '14400', '19200', '28800', '38400', '57600', '115200']
+        self.command = ''
 
         # Adding baudrates
         self.ui.baudRateComboBox.addItems(self.baud_rates)
@@ -37,6 +39,9 @@ class KeyboardControllerGUI(QDialog):
         self.ui.connectButton.clicked.connect(self.connect_)
         self.ui.disconnectButton.clicked.connect(self.disconnect_)
         self.ui.autoConnectButton.clicked.connect(self.autoconnect)
+        self.ui.autoExecCheckBox.clicked.connect(self.auto_execute)
+        self.ui.readCommandButton.clicked.connect(self.read_command)
+        self.ui.executeLatestCommandButton.clicked.connect(self.execute_command)
 
     def connect_keyboard(self):
         print("Connect Button Clicked")
@@ -95,6 +100,16 @@ class KeyboardControllerGUI(QDialog):
             self.ui.connectButton.setEnabled(False)
             self.ui.statusLabel.setText("Connected :" + self.HWKeyboard.get_arduino_details())
 
+    def auto_execute(self, bool):
+        self.autoExec = bool
+
+    def read_command(self):
+        self.HWKeyboard.get_command()
+        self.command = self.HWKeyboard.command
+        print (self.command)
+
+    def execute_command(self, cmd):
+        self.HWKeyboard.exec_command(cmd)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

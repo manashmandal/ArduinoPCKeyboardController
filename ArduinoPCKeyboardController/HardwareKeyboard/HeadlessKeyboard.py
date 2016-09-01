@@ -39,6 +39,9 @@ class ArduinoHeadlessKeyboard:
         print("Arduino Connection Error! Reconnect arduino and try again")
         return False
 
+    def exec_command(self, cmd):
+        keyboard.press(cmd)
+
     def get_last_command(self):
         return self.command
 
