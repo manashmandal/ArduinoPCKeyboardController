@@ -1,8 +1,27 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog
+from PyQt5.QtCore import QThread, QObject, pyqtSignal, pyqtSlot
+
 from HardwareKeyboard.HeadlessKeyboard import ArduinoHeadlessKeyboard
 from Interfaces.Ui_MainDialog import Ui_Dialog
 
+
+class SerialReadThread(QThread):
+    send_command = pyqtSignal('QString')
+
+    def __init__(self, HWKbd):
+        QThread.__init__(self)
+        self.HWKbd = HWKbd
+
+    def get_serial_data(self):
+        self.HWKbd.get_command()
+        return self.HWKbd.get_last_command()
+
+    def run(self):
+        self.sleep(5)
+        while True:
+            self.cmd = self.get_serial_data()
+            self.send_command.emit(self.cmd)
 
 class KeyboardControllerGUI(QDialog):
     def __init__(self):
@@ -42,6 +61,13 @@ class KeyboardControllerGUI(QDialog):
         self.ui.autoExecCheckBox.clicked.connect(self.auto_execute)
         self.ui.readCommandButton.clicked.connect(self.read_command)
         self.ui.executeLatestCommandButton.clicked.connect(self.execute_command)
+
+        self.serialThread = SerialReadThread(self.HWKeyboard)
+        self.serialThread.send_command.connect(self.read_command_from_thread)
+
+    @pyqtSlot(str)
+    def read_command_from_thread(self, cmd):
+        print(cmd)
 
     def connect_keyboard(self):
         print("Connect Button Clicked")
@@ -102,6 +128,11 @@ class KeyboardControllerGUI(QDialog):
 
     def auto_execute(self, bool):
         self.autoExec = bool
+        if self.autoExec:
+            self.serialThread.start()
+        else:
+            self.serialThread.terminate()
+
 
     def read_command(self):
         self.HWKeyboard.get_command()
@@ -111,10 +142,13 @@ class KeyboardControllerGUI(QDialog):
     def execute_command(self, cmd):
         self.HWKeyboard.exec_command(cmd)
 
+
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     keyboardGUI = KeyboardControllerGUI()
     keyboardGUI.show()
+    keyboardGUI.read_command()
     try:
         sys.exit(app.exec_())
     except:
