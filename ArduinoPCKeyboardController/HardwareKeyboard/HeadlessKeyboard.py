@@ -42,6 +42,15 @@ class ArduinoHeadlessKeyboard:
     def get_last_command(self):
         return self.command
 
+    def get_command(self):
+        if self.arduino.is_open():
+            self.command = self.arduino.readline()
+            self.command = self.command[:len(self.command)-1]
+            self.command = str(self.command, 'utf-8')
+
+    def execute_latest_command(self):
+        keyboard.press(self.command)
+
     def get_arduino_details(self):
         if len (self.arduino.get_arduino_details()) != 0:
             return self.arduino.get_arduino_details()[1]

@@ -94,7 +94,7 @@ class KeyboardControllerGUI(QDialog):
             self.ui.disconnectButton.setEnabled(True)
             self.ui.connectButton.setEnabled(False)
             self.ui.statusLabel.setText("Connected :" + self.HWKeyboard.get_arduino_details())
-        # self.ui.statusLabel.setText(self.HWKeyboard.get_arduino_details())
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
@@ -104,6 +104,3 @@ if __name__ == '__main__':
         sys.exit(app.exec_())
     except:
         print("exiting")
-    # HWKeyboard = ArduinoHeadlessKeyboard()
-    # HWKeyboard.autoconnect()
-    # HWKeyboard.execute_command()

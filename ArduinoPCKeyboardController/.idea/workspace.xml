@@ -23,8 +23,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="89" column="36" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
+            <state relative-caret-position="276">
+              <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -35,9 +35,11 @@
       <file leaf-file-name="Ui_MainDialog.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Interfaces/Ui_MainDialog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-              <folding />
+            <state relative-caret-position="-109">
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+              <folding>
+                <marker date="1472712305544" expanded="true" signature="298:360" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,8 +59,8 @@
       <file leaf-file-name="HeadlessKeyboard.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HardwareKeyboard/HeadlessKeyboard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="50" column="53" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
+            <state relative-caret-position="408">
+              <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -80,8 +82,8 @@
       <list>
         <option value="$PROJECT_DIR$/HardwareKeyboard/KeyboardController/HeadlessKeyboard.py" />
         <option value="$PROJECT_DIR$/SerialHandler/ArduinoController.py" />
-        <option value="$PROJECT_DIR$/HardwareKeyboard/HeadlessKeyboard.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/HardwareKeyboard/HeadlessKeyboard.py" />
       </list>
     </option>
   </component>
@@ -550,28 +552,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Interfaces/Ui_MainDialog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HardwareKeyboard/HeadlessKeyboard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="50" column="53" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
+        <state relative-caret-position="408">
+          <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Interfaces/Ui_MainDialog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-109">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+          <folding>
+            <marker date="1472712305544" expanded="true" signature="298:360" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="89" column="36" selection-start-line="89" selection-start-column="36" selection-end-line="89" selection-end-column="36" />
+        <state relative-caret-position="276">
+          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>357</width>
-    <height>109</height>
+    <width>401</width>
+    <height>216</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,21 +28,7 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="1">
-    <layout class="QHBoxLayout" name="baudRateHBoxLayout">
-     <item>
-      <widget class="QLabel" name="baudRateLabel">
-       <property name="text">
-        <string>Baud Rate</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QComboBox" name="baudRateComboBox"/>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="0" colspan="2">
+   <item row="2" column="0" colspan="2">
     <layout class="QHBoxLayout" name="pushButtonHBoxLayout">
      <item>
       <widget class="QPushButton" name="connectButton">
@@ -74,10 +60,52 @@
      </item>
     </layout>
    </item>
-   <item row="2" column="0" colspan="2">
+   <item row="0" column="1">
+    <layout class="QHBoxLayout" name="baudRateHBoxLayout">
+     <item>
+      <widget class="QLabel" name="baudRateLabel">
+       <property name="text">
+        <string>Baud Rate</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="baudRateComboBox"/>
+     </item>
+    </layout>
+   </item>
+   <item row="3" column="0" colspan="2">
     <widget class="QLabel" name="statusLabel">
      <property name="text">
       <string>Status</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QCheckBox" name="autoExecCheckBox">
+     <property name="text">
+      <string>Auto Execute Commands</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QPushButton" name="readCommandButton">
+     <property name="text">
+      <string>Read Command</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1">
+    <widget class="QPushButton" name="executeLatestCommandButton">
+     <property name="text">
+      <string>Execute Latest Command</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="QLabel" name="commandLabel">
+     <property name="text">
+      <string>Recieved: </string>
      </property>
     </widget>
    </item>
