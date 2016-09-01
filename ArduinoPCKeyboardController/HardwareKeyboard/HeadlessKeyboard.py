@@ -23,12 +23,16 @@ class ArduinoHeadlessKeyboard:
         self.arduino.connect()
 
     def execute_command(self):
-        self.command = self.arduino.readline()
-        # Remove the trailing newline
-        self.command = self.command[:len(self.command)-1]
-        # Convert byte to regular string
-        self.command = str(self.command, 'utf-8')
-        keyboard.press(self.command)
+        if self.arduino.is_open():
+            self.command = self.arduino.readline()
+            # Remove the trailing newline
+            self.command = self.command[:len(self.command)-1]
+            # Convert byte to regular string
+            self.command = str(self.command, 'utf-8')
+            keyboard.press(self.command)
+            return True
+        print("Arduino Connection Error! Reconnect arduino and try again")
+        return False
 
     def get_last_command(self):
         return self.command

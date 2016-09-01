@@ -9,6 +9,12 @@ class KeyboardControllerGUI(QDialog):
         super(KeyboardControllerGUI, self).__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
+        self.HWKeyboard = None
+        self.ui.connectButton.clicked.connect(self.connect_keyboard)
+
+    def connect_keyboard(self):
+        print("Connect Button Clicked")
+
 
 
 
