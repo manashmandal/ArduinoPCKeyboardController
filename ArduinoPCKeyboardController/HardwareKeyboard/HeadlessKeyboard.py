@@ -46,6 +46,10 @@ class ArduinoHeadlessKeyboard:
         if len (self.arduino.get_arduino_details()) != 0:
             return self.arduino.get_arduino_details()[1]
 
+    def get_arduino_port(self):
+        if len(self.arduino.get_arduino_details()) != 0:
+            return self.arduino.get_arduino_details()
+
 
 
 # if __name__ == '__main__':

@@ -47,7 +47,7 @@ class KeyboardControllerGUI(QDialog):
 
     def find_arduino(self):
         self.ui.statusLabel.setText("Finding Arduino")
-        details = self.HWKeyboard.get_arduino_details()
+        details = self.HWKeyboard.get_arduino_port()
         if details != "":
             print (details[1])
             self.arduino_board_details = details[1]
@@ -87,6 +87,7 @@ class KeyboardControllerGUI(QDialog):
         self.ui.findArduinoButton.setEnabled(True)
 
     def autoconnect(self):
+        self.HWKeyboard.disconnect()
         self.HWKeyboard.autoconnect()
         if self.HWKeyboard.is_connected():
             self.ui.findArduinoButton.setEnabled(False)
