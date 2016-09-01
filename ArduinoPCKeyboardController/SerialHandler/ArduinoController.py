@@ -45,6 +45,12 @@ class Controller:
         self.data = self.arduino.readline()
         return self.data
 
+    def get_arduino_details(self):
+        arduino_ports = [(_dev.device, _dev.description) for _dev in list_ports.comports() if _dev.description.__contains__("Arduino")]
+        if len(arduino_ports) == 0:
+            return ""
+        return arduino_ports[0]
+
     def autoconnect(self):
         if self.is_open():
             self.disconnect()
@@ -59,6 +65,3 @@ class Controller:
 
 
 
-if __name__ == '__main__':
-    controller = Controller()
-    controller.autoconnect()

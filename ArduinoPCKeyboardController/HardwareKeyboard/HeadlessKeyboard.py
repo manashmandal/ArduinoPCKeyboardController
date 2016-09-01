@@ -21,6 +21,7 @@ class ArduinoHeadlessKeyboard:
 
     def connect(self):
         self.arduino.connect()
+        return self.arduino.is_open()
 
     def execute_command(self):
         if self.arduino.is_open():
@@ -37,5 +38,11 @@ class ArduinoHeadlessKeyboard:
     def get_last_command(self):
         return self.command
 
-    def __del__(self):
-        self.arduino.disconnect()
+    def get_arduino_details(self):
+        return self.arduino.get_arduino_details()
+
+
+
+if __name__ == '__main__':
+    kbd = ArduinoHeadlessKeyboard()
+    print (kbd.get_arduino_details())
