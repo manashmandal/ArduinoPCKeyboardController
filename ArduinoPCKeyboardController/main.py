@@ -11,9 +11,24 @@ class KeyboardControllerGUI(QDialog):
         self.ui.setupUi(self)
         self.HWKeyboard = None
         self.ui.connectButton.clicked.connect(self.connect_keyboard)
+        # Variables
+        self.baud = 9600
+
+        # Baudrates
+        self.baud_rates = ['4800', '9600', '14400', '19200', '28800', '38400', '57600', '115200']
+
+        # Adding baudrates
+        self.ui.baudRateComboBox.addItems(self.baud_rates)
+        self.ui.baudRateComboBox.currentIndexChanged.connect(self.get_baud)
+
+        self.ui.baudRateComboBox.setCurrentText('9600')
 
     def connect_keyboard(self):
         print("Connect Button Clicked")
+
+    def get_baud(self, current_baud):
+        baud = int(self.baud_rates[current_baud])
+        print(baud)
 
 
 
