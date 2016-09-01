@@ -18,7 +18,7 @@ class SerialReadThread(QThread):
         return self.HWKbd.get_last_command()
 
     def run(self):
-        self.sleep(5)
+        self.sleep(1)
         while True:
             self.cmd = self.get_serial_data()
             self.send_command.emit(self.cmd)
@@ -67,6 +67,7 @@ class KeyboardControllerGUI(QDialog):
 
     @pyqtSlot(str)
     def read_command_from_thread(self, cmd):
+        self.HWKeyboard.exec_command(cmd)
         print(cmd)
 
     def connect_keyboard(self):
@@ -137,10 +138,12 @@ class KeyboardControllerGUI(QDialog):
     def read_command(self):
         self.HWKeyboard.get_command()
         self.command = self.HWKeyboard.command
+        self.ui.commandLabel.setText("Received: " + self.command)
         print (self.command)
 
-    def execute_command(self, cmd):
-        self.HWKeyboard.exec_command(cmd)
+    def execute_command(self):
+        self.HWKeyboard.exec_command(self.command)
+        self.ui.commandLabel.setText("Executed: " + self.command)
 
 
 
