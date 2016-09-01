@@ -16,18 +16,11 @@ class Controller:
 
     def connect(self):
         self.arduino = serial.Serial(self.port, baudrate=self.baud)
-        if self.is_open():
-            self.disconnect()
-            self.arduino.open()
-            print("Connected!")
-            return True
-        print ("Connection Failed!")
-        return False
-
+        self.disconnect()
+        self.arduino.open()
 
     def disconnect(self):
         self.arduino.close()
-        print("Disconnected")
 
     def is_open(self):
         return self.arduino.is_open
@@ -52,16 +45,17 @@ class Controller:
         return arduino_ports[0]
 
     def autoconnect(self):
-        if self.is_open():
-            self.disconnect()
+        # if self.is_open():
+        #     self.disconnect()
         arduino_ports = [_dev.device for _dev in list_ports.comports() if _dev.description.__contains__("Arduino")]
         if len(arduino_ports) == 0:
             print("No Arduino Found! Check connection!")
             return False
-        self.port = arduino_ports[-1]
-        self.set_port(self.port)
+        self.port = arduino_ports[0]
+        print(self.port)
+        self.set_port(str(self.port))
         self.connect()
-        return True
+        # self.connect()
 
 
 

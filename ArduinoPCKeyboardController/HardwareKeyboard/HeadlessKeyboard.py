@@ -7,6 +7,9 @@ class ArduinoHeadlessKeyboard:
         self.arduino = Controller()
         self.command = ''
 
+    def is_connected(self):
+        return self.arduino.is_open()
+
     def autoconnect(self):
         self.arduino.autoconnect()
 
@@ -18,10 +21,11 @@ class ArduinoHeadlessKeyboard:
 
     def disconnect(self):
         self.arduino.disconnect()
+        return self.arduino.is_open()
 
     def connect(self):
         self.arduino.connect()
-        return self.arduino.is_open()
+
 
     def execute_command(self):
         if self.arduino.is_open():
@@ -39,10 +43,13 @@ class ArduinoHeadlessKeyboard:
         return self.command
 
     def get_arduino_details(self):
-        return self.arduino.get_arduino_details()
+        if len (self.arduino.get_arduino_details()) != 0:
+            return self.arduino.get_arduino_details()[1]
 
 
 
-if __name__ == '__main__':
-    kbd = ArduinoHeadlessKeyboard()
-    print (kbd.get_arduino_details())
+# if __name__ == '__main__':
+#     kbd = ArduinoHeadlessKeyboard()
+#     kbd.autoconnect()
+#     while True:
+#         kbd.arduino.write("Balsal")
