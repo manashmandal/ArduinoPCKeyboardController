@@ -61,11 +61,3 @@ class ArduinoHeadlessKeyboard:
     def get_arduino_port(self):
         if len(self.arduino.get_arduino_details()) != 0:
             return self.arduino.get_arduino_details()
-
-
-
-# if __name__ == '__main__':
-#     kbd = ArduinoHeadlessKeyboard()
-#     kbd.autoconnect()
-#     while True:
-#         kbd.arduino.write("Balsal")
