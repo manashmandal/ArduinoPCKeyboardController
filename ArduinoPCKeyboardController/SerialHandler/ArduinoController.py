@@ -45,8 +45,6 @@ class Controller:
         return arduino_ports[0]
 
     def autoconnect(self):
-        # if self.is_open():
-        #     self.disconnect()
         arduino_ports = [_dev.device for _dev in list_ports.comports() if _dev.description.__contains__("Arduino")]
         if len(arduino_ports) == 0:
             print("No Arduino Found! Check connection!")
@@ -55,7 +53,3 @@ class Controller:
         print(self.port)
         self.set_port(str(self.port))
         self.connect()
-        # self.connect()
-
-
-
