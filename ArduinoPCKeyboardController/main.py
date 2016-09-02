@@ -49,6 +49,7 @@ class KeyboardControllerGUI(QDialog):
 
 
         self.ui.baudRateComboBox.setCurrentText('9600')
+        self.ui.autoExecCheckBox.setEnabled(False)
 
 
         #Connections
@@ -68,6 +69,7 @@ class KeyboardControllerGUI(QDialog):
     @pyqtSlot(str)
     def read_command_from_thread(self, cmd):
         self.HWKeyboard.exec_command(cmd)
+        self.ui.commandLabel.setText("Received: " + cmd)
         print(cmd)
 
     def connect_keyboard(self):
@@ -107,6 +109,7 @@ class KeyboardControllerGUI(QDialog):
             self.ui.statusLabel.setText("Connected")
             self.ui.connectButton.setEnabled(False)
             self.ui.disconnectButton.setEnabled(True)
+            self.ui.autoExecCheckBox.setEnabled(True)
         else:
             self.ui.statusLabel.setText("Connection Failed! Check COM Port")
 
