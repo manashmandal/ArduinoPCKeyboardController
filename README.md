@@ -4,4 +4,4 @@ PC Keyboard control by Arduino
 
 # Screenshot
 
-![ui]('Screenshots/mainui.png')
+![ui]('http://i.imgur.com/nf9astW.png')
